@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Signup Form</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .form-box { border: 1px solid #000; padding: 20px; width: 300px; margin: auto; }
+        input { width: 90%; margin-bottom: 10px; padding: 5px; }
+        .error { color: red; font-size: 12px; margin-bottom: 10px; display: block; }
+    </style>
+</head>
+<body>
+    <div class="form-box">
+        <h2>Signup</h2>
+        <form onsubmit="return validateForm()">
+            <label>Username</label>
+            <input type="text" id="uname">
+            <span id="errName" class="error"></span>
+
+            <label>Password</label>
+            <input type="password" id="pass">
+            <span id="errPass" class="error"></span>
+
+            <label>Confirm Password</label>
+            <input type="password" id="cpass">
+            <span id="errCpass" class="error"></span>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            let name = document.getElementById("uname").value;
+            let pass = document.getElementById("pass").value;
+            let cpass = document.getElementById("cpass").value;
+            
+            document.getElementById("errName").innerHTML = "";
+            document.getElementById("errPass").innerHTML = "";
+            document.getElementById("errCpass").innerHTML = "";
+
+            let isValid = true;
+
+            if (name.length < 3) {
+                document.getElementById("errName").innerHTML = "Name must be at least 3 characters";
+                isValid = false;
+            }
+            if (pass.length < 6) {
+                document.getElementById("errPass").innerHTML = "Password must be at least 6 characters";
+                isValid = false;
+            }
+            if (pass !== cpass) {
+                document.getElementById("errCpass").innerHTML = "Passwords do not match!";
+                isValid = false;
+            }
+
+            if(isValid) alert("Signup Successful!");
+            return isValid;
+        }
+    </script>
+</body>
+</html>

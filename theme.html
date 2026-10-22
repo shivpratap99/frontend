@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Theme Changer</title>
+    <style>
+        body { font-family: Arial; text-align: center; margin-top: 50px; transition: 0.3s; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Color Theme Changer</h1>
+    <p>Click the button below to change the theme.</p>
+    
+    <button onclick="changeTheme()">Toggle Dark/Light Mode</button>
+
+    <script>
+        let isDark = false;
+        function changeTheme() {
+            if (isDark) {
+                document.body.style.backgroundColor = "white";
+                document.body.style.color = "black";
+                isDark = false;
+            } else {
+                document.body.style.backgroundColor = "#333";
+                document.body.style.color = "white";
+                isDark = true;
+            }
+        }
+    </script>
+</body>
+</html>
